@@ -1,12 +1,12 @@
 <%= form_with model:book, local:true do |f| %>
   <div class="field row">
-      <%= f.label :title %>
-      <%= f.text_field :title,class:'col-xs-12 book_title' %>
+      <p><%= f.label :title %></p>
+      <p><%= f.text_field :title,class:'col-xs-12 book_title' %></p>
   </div>
   
   <div class="field row">
-      <%= f.label :opinion %>
-      <%= f.text_area :body,class:'col-xs-12 book_body' %>
+      <p><%= f.label :opinion %></p>
+      <p><%= f.text_area :body,class:'col-xs-12 book_body' %></p>
   </div>
   
   <div class="action row">

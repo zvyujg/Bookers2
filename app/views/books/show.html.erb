@@ -9,7 +9,7 @@
                 <h2>User info</h2>
                 <%= render 'users/profile', user:@user %>
                 <h2>New book</h2>
-                <%=render 'books/form',book:@book %>
+                <%=render 'books/form',book:@book_new %>
             </div>
             <div class="col-xs-9">
                 <h2>Book detail</h2>
@@ -17,12 +17,11 @@
                         <tr>
                             <td>
                               <%= link_to user_path(@user) do %>
-                              <%= attachment_image_tag(@user,:profile_image,:fill,100,100,format:'jpeg',fallback:"no-image-mini.jpg",size:'100X100') %><br>
+                              <%= image_tag @user.get_profile_image(100,100) %><br>
                               <%= @user.name %>
                               <% end %>
                             </td>
-                            <td><%= @book.title %></td>
-                            <td><%= @book.body %></td>
+                            
                             <% if user_signed_in? && current_user.id ==@book.user_id %>
                             <td><%= link_to "Edit",edit_book_path(@book.id), class:"btn-sm btn-success edit_book_#{@book.id}" %></td>
                             <td><%= link_to "Destroy",book_path(@book), method: :delete,date: {confilm:"本当に削除してもよろしいですか？"},class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
